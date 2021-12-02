@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Medicamento</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/busquedaMed.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <nav id="navegacion">
+        <div class="brand_image">
+               <a href="index.html"><img src="images/favicon.ico" alt="logo health lab" id="logo"></a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="colu-8">
+                <div class="Datos_Usuario">
+                    <main class="main-content">
+                        <section class="main-logo">
+                            <center><img class="logo" src="images/logo.png" alt=""></center>
+                        </section>
+                        <section class="main-input">
+                            <div class="input-container">
+                                <span class="search-icon"></span>
+                                <input type="text" class="input-search" id="input_busqueda" autofocus>
+                            </div>
+                        </section>
+                        <br>
+                        <div id="busqueda">
+                            <button id="boton_buscar" onclick="busquedaMedicamento()">Buscar</button>
+                        </div>
+
+                        <div id="resultados">
+                            <form id="myform"></form>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/busquedaMed.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
