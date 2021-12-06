@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json()) // nos permite convertir inputs en formato http a JSON
 
 // Routes
-app.use(require('./routes/index')) // indica la ruta en la que se indica el index.js
+app.use(require('./routes/index.js')) // indica la ruta en la que se indica el index.js
 
 // Static Content
 app.use(express.static(path.join(__dirname, 'public'))) // __dirname nos da la ruta completa de la carpeta en la que estamos

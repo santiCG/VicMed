@@ -47,16 +47,16 @@ const subscription = async () => { // la palabra asyn indica que la funcion es a
 }
 
 const form = document.querySelector('#myform') // #myform = id del formulario
-// const message = document.querySelector('#message') // #message = id del input por el que vamos a escribir el mensaje
+const message = document.querySelector('#message') // #message = id del input por el que vamos a escribir el mensaje
 
 form.addEventListener('submit', (e) => {
     e.preventDefault() // esto lo que hace es anular la funcion por defecto de un form, que es resetear todo
 
     fetch('/new_message', {
         method: 'POST',
-        // body: JSON.stringify({
-        //     message: message.value // esto indica que el mensaje que enviaremos sera el valor contenido en el input del formulario
-        // }),
+        body: JSON.stringify({
+            message: message.value // esto indica que el mensaje que enviaremos sera el valor contenido en el input del formulario
+        }),
         headers: {
             'Content-Type': 'application/json'
         }

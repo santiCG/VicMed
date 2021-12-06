@@ -1,6 +1,7 @@
+
 const { Router } = require('express') // Router es un objeto que nos permite definir rutas
 const router = Router()
-// const usuario = require('../public/models/usuario.js');
+const usuario = require('../public/models/usuario.js');
 
 const webpush = require('../webpush')
 let pushSubscription
@@ -18,6 +19,7 @@ router.post('/usuarios', async function (req, res) {
 })
 
 router.post('/subscription', async (req, res) => {  // escuchar una ruta llamada subscription 
+    console.log("AAAAA")
     pushSubscription = req.body // guardamos en la variable pushSubscription las peticiones que nos van llegando
     console.log(pushSubscription)
 
