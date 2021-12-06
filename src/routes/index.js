@@ -19,9 +19,7 @@ router.post('/usuarios', async function (req, res) {
 })
 
 router.post('/subscription', async (req, res) => {  // escuchar una ruta llamada subscription 
-    console.log("AAAAA")
     pushSubscription = req.body // guardamos en la variable pushSubscription las peticiones que nos van llegando
-    console.log(pushSubscription)
 
     // Servers response
     res.status(200).json() // responder con un estado 200

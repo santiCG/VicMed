@@ -7,6 +7,6 @@ self.addEventListener('push', (e) => { // self hace referencia a ese mismo archi
 
     self.registration.showNotification(data.title, { // muestra la notificacion en pantalla
         body: data.message,
-        icon: "https://e7.pngegg.com/pngimages/618/701/png-clipart-wellbridge-of-rochester-hills-health-care-medicine-nursing-registered-nurse-logo-medical-thumbnail.png"
+        icon: "https://i.pinimg.com/originals/d9/cb/8f/d9cb8fb8eb3f4ae6fcc751faebc0b5f4.png"
     })
 })

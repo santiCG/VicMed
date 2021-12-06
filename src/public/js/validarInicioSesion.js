@@ -4,8 +4,6 @@ const password = document.getElementById('password')
 
 var n = 0
 
-var registros = [{'username' : 'santiago', 'email' : 'santiago@gm.com', 'password' : '123'}, {'username' : 'maria', 'email' : 'maria@gm.com', 'password' : '123'}, {'username' : 'andres', 'email' : 'andres@gm.com', 'password' : '123'}]
-
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -79,5 +77,3 @@ function setSuccessFor(input) {
 	const formControl = input.parentElement;
 	formControl.className = 'form-control success';
 }
-
-logInTrue()

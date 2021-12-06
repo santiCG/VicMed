@@ -12,12 +12,11 @@ form.addEventListener('submit', (e) => {
 	if (checkInputs() == true) {
 		registros.push({ 'username': username.value, 'email': email.value, 'password': password.value })
 
-		window.location.href = './inicio_sesion.html'
+		window.location.href = '../inicio_sesion.html'
 	}
 });
 
 async function checkInputs() {
-	console.log("0")
 	// trim to remove the whitespaces
 	const usernameValue = username.value.trim();
 	const emailValue = email.value.trim();
@@ -58,7 +57,7 @@ async function checkInputs() {
 	}
 
 
-	if (check_control === 4) {
+	if (check_control == 4) {
 		var response = await fetch('/usuarios',
 			{
 				method: "POST",
@@ -97,5 +96,3 @@ function setSuccessFor(input) {
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
-
-// export {registros};
