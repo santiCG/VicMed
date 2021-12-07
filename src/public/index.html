@@ -1,56 +1,60 @@
 <!DOCTYPE html>
-<html lang="en"><!-- Basic -->
+<html lang="en">
+<!-- Basic -->
+
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-   
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
-     <!-- Site Metas -->
-    <title>Vmed</title>  
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<!-- Mobile Metas -->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Pogo Slider CSS -->
-    <link rel="stylesheet" href="css/pogo-slider.min.css">
+	<!-- Site Metas -->
+	<title>Vmed</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Site Icons -->
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Pogo Slider CSS -->
+	<link rel="stylesheet" href="css/pogo-slider.min.css">
 	<!-- Site CSS -->
-    <link rel="stylesheet" href="css/style.css">    
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="css/responsive.css">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="css/custom.css">
 
-    <!--[if lt IE 9]>
+	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 </head>
+
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
 
 	<!-- LOADER -->
-     <!-- <div id="preloader">
+	<!-- <div id="preloader">
 		<div class="loader">
 			<img src="images/preloader.gif" alt="" />
 		</div>
     </div>end loader -->
-    <!-- END LOADER -->
-	
+	<!-- END LOADER -->
+
 	<!-- Start top bar -->
 	<div class="main-top">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="left-top">
-						<div class="mail-b"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> contacto@vmed.com</a></div>
+						<div class="mail-b"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+								contacto@vmed.com</a></div>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -70,41 +74,61 @@
 		</div>
 	</div>
 	<!-- End top bar -->
-	
+
 	<!-- Start header -->
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
-            <div class="container">
+			<div class="container">
 				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd"
+					aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
 					<span></span>
 				</button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
-                    <ul class="navbar-nav">
-                        <li><a class="nav-link active" href="#home">Home</a></li>
-                        <li><a class="nav-link" href="#about">Quienes somos</a></li>
-                        <li><a class="nav-link" href="#services">Servicios</a></li>
-                        <li><a class="nav-link" href="#blog">Blog</a></li>
+				<div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+					<ul class="navbar-nav">
+						<li><a class="nav-link active" href="#home">Home</a></li>
+						<li><a class="nav-link" href="#about">Quienes somos</a></li>
+						<li><a class="nav-link" href="#services">Servicios</a></li>
+						<li><a class="nav-link" href="#blog">Blog</a></li>
 						<li><a class="nav-link" href="#contact">Contactanos</a></li>
-						<li><a class="nav-link" href="BusquedaMedicina.html">Añadir medicamento</a></li>
+						<li><a class="nav-link sesionElements" href="BusquedaMedicina.html">Añadir medicamento</a></li>
+						<li>
+							<div class="dropdown sesionElements"><button class="btn btn-success dropdown-toggle" type="button"
+									id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									<strong><span id="showuserbox"></span></strong>
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#" onclick="logOut()">Cerrar sesión</a>
+								</div>
+							</div>
+						</li>
+
+
 						<div id="perfil">
 							<li><a class="nav-link" id="boton_reg" href="registro.html">Registrarme</a></li>
 						</div>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+						<div id="perfil">
+							<li><a class="nav-link" id="boton_login" href="inicio_sesion.html">Login</a></li>
+						</div>
+
+						
+					</ul>
+				</div>
+			</div>
+		</nav>
 	</header>
 	<!-- End header -->
-	
+
 	<!-- Start Banner -->
 	<div class="ulockd-home-slider">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="pogoSlider" id="js-main-slider">
-					<div class="pogoSlider-slide" data-transition="fade" data-duration="1500" style="background-image:url(images/slider-01.jpg);">
+					<div class="pogoSlider-slide" data-transition="fade" data-duration="1500"
+						style="background-image:url(images/slider-01.jpg);">
 						<div class="lbox-caption pogoSlider-slide-element">
 							<div class="lbox-details">
 								<h1>Bienvenido a Vmed</h1>
@@ -113,7 +137,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="pogoSlider-slide" data-transition="fade" data-duration="1500" style="background-image:url(images/slider-03.jpg);">
+					<div class="pogoSlider-slide" data-transition="fade" data-duration="1500"
+						style="background-image:url(images/slider-03.jpg);">
 						<div class="lbox-caption pogoSlider-slide-element">
 							<div class="lbox-details">
 								<h1>Bienvenido a Vmed</h1>
@@ -121,14 +146,14 @@
 								<a href="#" class="btn">Contactanos</a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div><!-- .pogoSlider -->
 			</div>
 		</div>
 	</div>
 	<!-- End Banner -->
-	
+
 	<!-- Start About us -->
 	<div id="about" class="about-box">
 		<div class="about-a1">
@@ -146,8 +171,12 @@
 						<div class="row align-items-center about-main-info">
 							<div class="col-lg-6 col-md-6 col-sm-12">
 								<h2>Bienvenido a Vmed</h2>
-								<p>Somos aliados del cuidado y la excelente calidad de atención en salud, por eso contribuimos a una correcta administración de medicamentos y el óptimo tratamiento de los pacientes.</p>
-								<p>Mediante nuestra herramienta tecnológica podrás buscar información detallada sobre las características de las diferentes terapias medicamentosas y calcular la dosis correcta de cada una de acuerdo a las condiciones físicas del paciente.</p>
+								<p>Somos aliados del cuidado y la excelente calidad de atención en salud, por eso
+									contribuimos a una correcta administración de medicamentos y el óptimo tratamiento
+									de los pacientes.</p>
+								<p>Mediante nuestra herramienta tecnológica podrás buscar información detallada sobre
+									las características de las diferentes terapias medicamentosas y calcular la dosis
+									correcta de cada una de acuerdo a las condiciones físicas del paciente.</p>
 								<a href="#" class="new-btn-d br-2">Leer más</a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-12">
@@ -172,7 +201,7 @@
 		</div>
 	</div>
 	<!-- End About us -->
-	
+
 	<!-- Start Services -->
 	<div id="services" class="services-box">
 		<div class="container">
@@ -180,12 +209,14 @@
 				<div class="col-lg-12">
 					<div class="title-box">
 						<h2>Servicios</h2>
-						<ul>Gracias a nuestra completa base de datos tienes acceso a las fichas técnicas de los medicamentos. </ul>
-						<ul>También contamos con el servicio de notificación que te recuerda la hora de aplicación o consumo del medicamento </ul>
+						<ul>Gracias a nuestra completa base de datos tienes acceso a las fichas técnicas de los
+							medicamentos. </ul>
+						<ul>También contamos con el servicio de notificación que te recuerda la hora de aplicación o
+							consumo del medicamento </ul>
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="owl-carousel owl-theme">
@@ -194,7 +225,8 @@
 								<div class="service-icon"><i class="fa fa-h-square" aria-hidden="true"></i></div>
 								<h3 class="title">Articulos</h3>
 								<p class="description">
-									En este sitio tendras acceso a multiples articulos e informacion relacionada con el mundo de la salud y la medicina.
+									En este sitio tendras acceso a multiples articulos e informacion relacionada con el
+									mundo de la salud y la medicina.
 								</p>
 								<a href="#" class="new-btn-d br-2">Leer más</a>
 							</div>
@@ -204,7 +236,8 @@
 								<div class="service-icon"><i class="fa fa-heart" aria-hidden="true"></i></div>
 								<h3 class="title">Notificaciones</h3>
 								<p class="description">
-									Crea notificaciones programadas que te avisaran cuando debes tomar tus medicinas, ya nunca mas tendras que procuparte por el reloj.
+									Crea notificaciones programadas que te avisaran cuando debes tomar tus medicinas, ya
+									nunca mas tendras que procuparte por el reloj.
 								</p>
 								<a href="#" class="new-btn-d br-2">Leer más</a>
 							</div>
@@ -214,7 +247,8 @@
 								<div class="service-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></div>
 								<h3 class="title">Agenda Citas</h3>
 								<p class="description">
-									Podras agendar citas en distintas clinicas en tu ciudad, asi podras ahorrarte la espera y el interminable papeleo.
+									Podras agendar citas en distintas clinicas en tu ciudad, asi podras ahorrarte la
+									espera y el interminable papeleo.
 								</p>
 								<a href="#" class="new-btn-d br-2">Leer más</a>
 							</div>
@@ -224,7 +258,8 @@
 								<div class="service-icon"><i class="fa fa-stethoscope" aria-hidden="true"></i></div>
 								<h3 class="title">Busqueda de Medicinas</h3>
 								<p class="description">
-									Tendras a tu disposición un motor de busqueda que te dara informacion clara y sencilla de multiples medicamentos.
+									Tendras a tu disposición un motor de busqueda que te dara informacion clara y
+									sencilla de multiples medicamentos.
 								</p>
 								<a href="#" class="new-btn-d br-2">Leer más </a>
 							</div>
@@ -249,7 +284,7 @@
 								<a href="#" class="new-btn-d br-2">Read More</a>
 							</div>
 						</div>
-						<div class="item"> 
+						<div class="item">
 							<div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-medkit" aria-hidden="true"></i></div>
 								<h3 class="title">Lorem ipsum dolor</h3>
@@ -281,10 +316,10 @@
 						</div>
 					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
 	</div>
-	<!-- End Services -->	
+	<!-- End Services -->
 	<!-- Start Blog -->
 	<div id="blog" class="blog-box">
 		<div class="container">
@@ -308,8 +343,12 @@
 							<span class="dti">18 Oct. 2021</span>
 						</div>
 						<h2>Aumento de peso e inactividad física durante la pandemia de COVID-19</h2>
-						<p>“los estudios microeconómicos para el tratamiento de la obesidad se han incrementado en los últimos años”. Sin embargo, debemos tener en cuenta que esto no ocurre en todo el mundo. El país con mayor evidencia sobre este tema es Estados Unidos.</p>
-						<a class="new-btn-d br-2" target="blank" href="https://www.paho.org/journal/es/articulos/aumento-peso-e-inactividad-fisica-durante-pandemia-covid-19">Leer más <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+						<p>“los estudios microeconómicos para el tratamiento de la obesidad se han incrementado en los
+							últimos años”. Sin embargo, debemos tener en cuenta que esto no ocurre en todo el mundo. El
+							país con mayor evidencia sobre este tema es Estados Unidos.</p>
+						<a class="new-btn-d br-2" target="blank"
+							href="https://www.paho.org/journal/es/articulos/aumento-peso-e-inactividad-fisica-durante-pandemia-covid-19">Leer
+							más <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-12">
@@ -322,9 +361,14 @@
 							<a href="#"><i class="fa fa-user-o"></i> OPS</a>
 							<span class="dti">23 Nov. 2021</span>
 						</div>
-						<h2>Factores de riesgo en mujeres con embarazos de alto riesgo y sus recién nacidos en Haití</h2>
-						<p>Se incluyó en el análisis un total de 31 509 mujeres y 24 983 partos. De estos, se documentaron 204 (0,6 %) muertes maternas, 1962 (7,9 %) mortinatos y 11 008 (44,1%) recién nacidos con peso bajo al nacer.</p>
-						<a class="new-btn-d br-2" target="blank" href="https://www.paho.org/journal/es/articulos/factores-riesgo-resultados-adversos-mujeres-con-embarazos-alto-riesgo-sus-recien-nacidos">Leer Más <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+						<h2>Factores de riesgo en mujeres con embarazos de alto riesgo y sus recién nacidos en Haití
+						</h2>
+						<p>Se incluyó en el análisis un total de 31 509 mujeres y 24 983 partos. De estos, se
+							documentaron 204 (0,6 %) muertes maternas, 1962 (7,9 %) mortinatos y 11 008 (44,1%) recién
+							nacidos con peso bajo al nacer.</p>
+						<a class="new-btn-d br-2" target="blank"
+							href="https://www.paho.org/journal/es/articulos/factores-riesgo-resultados-adversos-mujeres-con-embarazos-alto-riesgo-sus-recien-nacidos">Leer
+							Más <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-12">
@@ -338,15 +382,20 @@
 							<span class="dti">14 Ene. 2011</span>
 						</div>
 						<h2>Estadisticas Sanitarias Mundiales</h2>
-						<p>La Organización Mundial de la Salud ha publicado el informe anual donde muestran las estadísticas sanitarias a nivel mundial del 2011. Exponiendo graficas en torno a temas como la esperanza de vida y la mortandad, las enfermedades infecciosas, entre otros multiples temas.</p>
-						<a class="new-btn-d br-2" target="blank" href="https://www.who.int/whosis/whostat/ES_WHS2011_Full.pdf">Leer Más <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+						<p>La Organización Mundial de la Salud ha publicado el informe anual donde muestran las
+							estadísticas sanitarias a nivel mundial del 2011. Exponiendo graficas en torno a temas como
+							la esperanza de vida y la mortandad, las enfermedades infecciosas, entre otros multiples
+							temas.</p>
+						<a class="new-btn-d br-2" target="blank"
+							href="https://www.who.int/whosis/whostat/ES_WHS2011_Full.pdf">Leer Más <i
+								class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- End Blog -->
-	
+
 	<!-- Start Contact -->
 	<div id="contact" class="contact-box">
 		<div class="container">
@@ -359,46 +408,52 @@
 				</div>
 			</div>
 			<div class="row">
-				
+
 				<div class="col-lg-12 col-xs-12">
-				  <div class="contact-block">
-					<form id="contactForm">
-					  <div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required data-error="Por favor ingrese su nobre">
-								<div class="help-block with-errors"></div>
-							</div>                                 
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" placeholder="Correo electrónico" id="email" class="form-control" name="name" required data-error="Por favor ingrese su correo electrónico">
-								<div class="help-block with-errors"></div>
-							</div> 
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<input type="text" placeholder="Número telefónico" id="number" class="form-control" name="number" required data-error="Por favor ingrese su número de teléfono">
-								<div class="help-block with-errors"></div>
-							</div> 
-						</div>
-						<div class="col-md-12">
-							<div class="form-group"> 
-								<textarea class="form-control" id="message" placeholder="Mensaje" rows="8" data-error="Escriba su mensaje" required></textarea>
-								<div class="help-block with-errors"></div>
+					<div class="contact-block">
+						<form id="contactForm">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" id="name" name="name"
+											placeholder="Nombre" required data-error="Por favor ingrese su nobre">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" placeholder="Correo electrónico" id="email"
+											class="form-control" name="name" required
+											data-error="Por favor ingrese su correo electrónico">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input type="text" placeholder="Número telefónico" id="number"
+											class="form-control" name="number" required
+											data-error="Por favor ingrese su número de teléfono">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<textarea class="form-control" id="message" placeholder="Mensaje" rows="8"
+											data-error="Escriba su mensaje" required></textarea>
+										<div class="help-block with-errors"></div>
+									</div>
+									<div class="submit-button text-center">
+										<button class="btn btn-common" id="submit" type="submit">Enviar mensaje</button>
+										<div id="msgSubmit" class="h3 text-center hidden"></div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
 							</div>
-							<div class="submit-button text-center">
-								<button class="btn btn-common" id="submit" type="submit">Enviar mensaje</button>
-								<div id="msgSubmit" class="h3 text-center hidden"></div> 
-								<div class="clearfix"></div> 
-							</div>
-						</div>
-					  </div>            
-					</form>
-				  </div>
+						</form>
+					</div>
 				</div>
-				
-				
+
+
 				<div class="col-lg-12 col-xs-12">
 					<div class="left-contact">
 						<h2>Ubicanos en</h2>
@@ -433,13 +488,13 @@
 						</div>
 					</div>
 				</div>
-				
-				
+
+
 			</div>
 		</div>
 	</div>
 	<!-- End Contact -->
-	
+
 	<!-- Start Subscribe -->
 	<div class="subscribe-box">
 		<div class="container">
@@ -450,7 +505,8 @@
 						<p>Ingresa tu correo electrónico para recibir información importante del área de la salud</p>
 						<form action="#" method="post">
 							<div class="form-group">
-								<input class="form-control-1" id="email-1" name="email" placeholder="Correo electrónico" required="" type="text">
+								<input class="form-control-1" id="email-1" name="email" placeholder="Correo electrónico"
+									required="" type="text">
 							</div>
 							<div class="form-group">
 								<button type="submit" class="new-btn-d br-2">
@@ -464,19 +520,20 @@
 		</div>
 	</div>
 	<!-- End Subscribe -->
-	
+
 	<!-- Start Footer -->
 	<footer class="footer-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">Health Lab</a> Design By : <a href="https://html.design/">html design</a></p>
+					<p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">Health Lab</a> Design By
+						: <a href="https://html.design/">html design</a></p>
 				</div>
 			</div>
 		</div>
 	</footer>
 	<!-- End Footer -->
-	
+
 	<a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
 
 	<!-- ALL JS FILES -->
@@ -485,18 +542,19 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-    <!-- ALL PLUGINS -->
+	<!-- ALL PLUGINS -->
 	<script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.pogo-slider.min.js"></script> 
+	<script src="js/jquery.pogo-slider.min.js"></script>
 	<script src="js/slider-index.js"></script>
 	<script src="js/smoothscroll.js"></script>
 	<script src="js/TweenMax.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/form-validator.min.js"></script>
-    <script src="js/contact-form-script.js"></script>
-	<script src="js/isotope.min.js"></script>	
-	<script src="js/images-loded.min.js"></script>	
-    <script src="js/custom.js"></script>
+	<script src="js/contact-form-script.js"></script>
+	<script src="js/isotope.min.js"></script>
+	<script src="js/images-loded.min.js"></script>
+	<script src="js/custom.js"></script>
 </body>
+
 </html>

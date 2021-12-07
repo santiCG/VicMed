@@ -14,6 +14,7 @@
 @import url(responsiveslides.css);
 @import url(owl.carousel.min.css);
 @import url(flaticon.css);
+@import url(sesion.css);
 
 /*------------------------------------------------------------------
     SKELETON
@@ -149,6 +150,10 @@ button:focus{
     color: #12557f;
     opacity: 1;
 }
+
+
+
+
 
 
 /*------------------------------------------------------------------
@@ -302,10 +307,17 @@ button:focus{
 	background-color: #34ade6;
 	color: #ffffff;
 	font-weight: 600;
-	border-radius: 15px;
+	border-radius: 10px;
 }
+#boton_login{
+	background-color: #276c8b;
+	color: #ffffff;
+	font-weight: 600;
+	border-radius: 10px;	
+}
+
 #boton_reg:hover {
-	font-weight: 800;
+	font-weight: 700;
 }
 
 .wel-nots{
