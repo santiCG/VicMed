@@ -2,75 +2,151 @@ const form = document.getElementById('form');
 const username = document.getElementById('username')
 const password = document.getElementById('password')
 
-var n = 0
+//var n = 0
 
 
 form.addEventListener('submit', e => {
-	e.preventDefault();
-    
-    if(checkInputs() == true) {
+    e.preventDefault();
+    checkInputs();
+    /*
+    if (checkInputs() == true) {
+        let usernamesesion = username.value.trim();
+        let miSesión = { 'username': usernamesesion, 'hora': 'css3' };
 
+        // Guardo el objeto como un string
+        localStorage.setItem('sesion', JSON.stringify(miSesión));
         window.location.href = './index.html'
+    } else {
+        alert("Datos de inicio de sesión errados, intente de nuevo");
     }
+    */
 });
 
-function searchUser() {
-
-    for (let i = 0; i < registros.length; i++) {
-        
-        if(registros[i].username === username.value) {
-            n = i
-            return true
-        }
-    }
-	setErrorFor(username, 'Sorry, we do not find this user');
-    return false
+/*
+async function searchUser(usernameValue) {
+    let response = await fetch('/usuariosus/' + usernameValue,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }).then(response => response.json())
+        .then(data => {
+            if (data.username != null) {
+                console.log(data.username);
+                return true
+            }
+        }).catch(function (error) {
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+            return false
+        });
 }
+*/
+/*
+async function check_password(passwordValue) {
+    let response = await fetch('/usuariosps/' + passwordValue,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }).then(response => response.json())
+        .then(data => {
+            if (data.username != null) {
+                console.log(data.username);
+                return true
+            }
+        }).catch(function (error) {
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+            return false
+        });
+}
+*/
+async function checkInputs() {
+    console.log("me ejecuté")
+    // trim to remove the whitespaces
+    const usernameValue = username.value.trim();
+    const passwordValue = password.value.trim();
+    let check_control = 0
 
-function check_password() {
-    if(registros[n].password === password.value) {     
-        return true
+    if (usernameValue === '') {
+        setErrorFor(username, 'Username cannot be blank');
+    } else {
+        let response = await fetch('/usuariosus/' + usernameValue,
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            }).then(response => response.json())
+            .then(data => {
+                if (data.username != null) {
+                    setSuccessFor(username);
+                    check_control += 1
+                    console.log(data.username);
+                    //return true
+                }
+            }).catch(function (error) {
+                console.log('Hubo un problema con la petición Fetch:' + error.message);
+                //return false
+            });
+        /*
+        if (searchUser(usernameValue) == true) {
+            setSuccessFor(username);
+            check_control += 1
+        }*/
     }
-    else {
-	    setErrorFor(password, 'Sorry, the password do not match with the user');
+
+    if (passwordValue === '') {
+        setErrorFor(password, 'Password cannot be blank');
+    } else {
+        let response = await fetch('/usuariosps/' + passwordValue,
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            }).then(response => response.json())
+            .then(data => {
+                if (data.username != null) {
+                    setSuccessFor(password);
+                    check_control += 1
+                    console.log(data.username);
+                    //return true
+                }
+            }).catch(function (error) {
+                console.log('Hubo un problema con la petición Fetch:' + error.message);
+                //return false
+            });
+        /*if (check_password(passwordValue) == true) {
+            setSuccessFor(password);
+            check_control += 1
+        }*/
+    }
+
+    console.log(check_control);
+
+    if (check_control === 2) {
+        console.log("Dio true gente");
+        let usernamesesion = username.value.trim();
+        let miSesión = { 'username': usernamesesion, 'hora': 'css3' };
+
+        // Guardo el objeto como un string
+        localStorage.setItem('sesion', JSON.stringify(miSesión));
+        window.location.href = './index.html'
+        return true
+    } else {
+        console.log("Dio false gente");
+        alert("Datos de inicio de sesión errados, intente de nuevo");
         return false
     }
 }
 
-function checkInputs() {
-	// trim to remove the whitespaces
-	const usernameValue = username.value.trim();
-	const passwordValue = password.value.trim();
-    var check_control = 0
-	
-	if(usernameValue === '') {
-		setErrorFor(username, 'Username cannot be blank');
-	} else {
-        if(searchUser() == true) {
-    		setSuccessFor(username);
-            check_control += 1
-        }
-	}
-	
-	if(passwordValue === '') {
-		setErrorFor(password, 'Password cannot be blank');
-	} else {
-        if(check_password() == true) {
-            setSuccessFor(password);
-            check_control += 1
-        }
-	}
-
-    if (check_control === 2) {
-        return true
-    }
-}
-
 function setErrorFor(input, message) {
-	const formControl = input.parentElement;
-	const small = formControl.querySelector('small');
-	formControl.className = 'form-control error';
-	small.innerText = message;
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    formControl.className = 'form-control error';
+    small.innerText = message;
 }
 
 function setSuccessFor(input) {

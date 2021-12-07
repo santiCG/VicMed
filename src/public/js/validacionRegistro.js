@@ -76,6 +76,7 @@ async function checkInputs() {
 		}
 		else{
 			alert("Has quedado registrado correctamente")
+			window.location.href = './inicio_sesion.html';
 			return true
 		}
 	}

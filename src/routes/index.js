@@ -12,6 +12,22 @@ router.get('/usuarios', async function (req, res) {
     });
 })
 
+//Login routes
+
+router.get('/usuariosus/:username', async function (req, res) {
+    usuario.findOne({ username: req.params.username }).then(function (usuario) {
+        res.send(usuario);
+    });
+});
+
+router.get('/usuariosps/:password', async function (req, res) {
+    usuario.findOne({ password: req.params.password }).then(function (usuario) {
+        res.send(usuario);
+    });
+});
+
+//here
+
 router.post('/usuarios', async function (req, res) {
     usuario.create(req.body).then(function (usuario) {
         res.send(usuario);
@@ -36,7 +52,7 @@ router.post('/new_message', async (req, res) => {
     res.status(200).json()
 
     try { // los try catch sirven para atrapar y manejar los errores, si todo va bien se ejecutara lo que halla en el bloque try, si algo sale mal se ejecutara lo que halla en el bloque catch
-        
+
         await webpush.sendNotification(pushSubscription, data_noty) // la funcion sirve para enviar las notificaciones, el primer parametro indica a donde debemos enviar las notificaciones, y el segundo que mensaje vamos a enviar en ellas
     } catch (error) {
         console.log(error) // mostrar el error en la ejecucion
