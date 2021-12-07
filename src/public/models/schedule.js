@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const scheduleSchema = new Schema({
     nombreMedicamento:String,
+    usuario:String,
     intervalodosis:Number,
     fechainicio:Date
 });

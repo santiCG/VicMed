@@ -2,6 +2,8 @@
 const { Router } = require('express') // Router es un objeto que nos permite definir rutas
 const router = Router()
 const usuario = require('../public/models/usuario.js');
+const medicamento = require('../public/models/medicamento.js');
+const schedule = require('../public/models/schedule.js');
 
 const webpush = require('../webpush')
 let pushSubscription
@@ -35,11 +37,54 @@ router.get('/usuarioslog/:username/:password', async function (req, res) {
 
 //here
 
+//Create usuarios
+
 router.post('/usuarios', async function (req, res) {
     usuario.create(req.body).then(function (usuario) {
         res.send(usuario);
     });
 })
+
+//here
+
+
+//get medicamentos
+
+router.get('/medicamento/:nombre', async function (req, res) {
+    medicamento.findOne({ nombre: req.params.nombre }).then(function (medicamento) {
+        res.send(medicamento);
+    });
+});
+
+router.post('/medicamento', async function (req, res) {
+    medicamento.create(req.body).then(function (medicamento) {
+        res.send(medicamento);
+    });
+})
+
+router.get('/medicamentos', async function (req, res) {
+    medicamento.find().then(function (medicamentos) {
+        res.send(medicamentos);
+    });
+});
+
+//here
+
+//post schedule with meds
+router.post('/schedule', async function (req, res) {
+    schedule.create(req.body).then(function (schedule) {
+        res.send(schedule);
+    });
+})
+
+router.get('/schedules', async function (req, res) {
+    schedule.find().then(function (schedules) {
+        res.send(schedules);
+    });
+});
+
+//here
+//
 
 router.post('/subscription', async (req, res) => {  // escuchar una ruta llamada subscription 
     pushSubscription = req.body // guardamos en la variable pushSubscription las peticiones que nos van llegando
@@ -53,7 +98,7 @@ router.post('/new_message', async (req, res) => {
     const { message } = req.body
 
     const data_noty = JSON.stringify({  // este es un objeto que guardara los datos que enviaremos en la notificacion, JSON.stringify es un metodo para comvertir el objeto en un string
-        title: 'Hey!, es hora de tu mediciona',
+        title: 'Hey!, es hora de tu medicina',
         message
     })
     res.status(200).json()
