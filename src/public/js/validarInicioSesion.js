@@ -69,10 +69,10 @@ async function checkInputs() {
     const passwordValue = password.value.trim();
     let check_control = 0
 
-    if (usernameValue === '') {
-        setErrorFor(username, 'Username cannot be blank');
+    if (usernameValue === '' || passwordValue === '') {
+        setErrorFor(username, 'Username and password cannot be blank');
     } else {
-        let response = await fetch('/usuariosus/' + usernameValue,
+        let response = await fetch('/usuarioslog/' + usernameValue + '/' + passwordValue,
             {
                 method: "GET",
                 headers: {
@@ -90,43 +90,11 @@ async function checkInputs() {
                 console.log('Hubo un problema con la petición Fetch:' + error.message);
                 //return false
             });
-        /*
-        if (searchUser(usernameValue) == true) {
-            setSuccessFor(username);
-            check_control += 1
-        }*/
-    }
-
-    if (passwordValue === '') {
-        setErrorFor(password, 'Password cannot be blank');
-    } else {
-        let response = await fetch('/usuariosps/' + passwordValue,
-            {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                }
-            }).then(response => response.json())
-            .then(data => {
-                if (data.username != null) {
-                    setSuccessFor(password);
-                    check_control += 1
-                    console.log(data.username);
-                    //return true
-                }
-            }).catch(function (error) {
-                console.log('Hubo un problema con la petición Fetch:' + error.message);
-                //return false
-            });
-        /*if (check_password(passwordValue) == true) {
-            setSuccessFor(password);
-            check_control += 1
-        }*/
     }
 
     console.log(check_control);
 
-    if (check_control === 2) {
+    if (check_control === 1) {
         console.log("Dio true gente");
         let usernamesesion = username.value.trim();
         let miSesión = { 'username': usernamesesion, 'hora': 'css3' };
@@ -150,6 +118,6 @@ function setErrorFor(input, message) {
 }
 
 function setSuccessFor(input) {
-	const formControl = input.parentElement;
-	formControl.className = 'form-control success';
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
 }

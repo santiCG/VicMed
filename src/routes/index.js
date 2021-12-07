@@ -26,6 +26,13 @@ router.get('/usuariosps/:password', async function (req, res) {
     });
 });
 
+
+router.get('/usuarioslog/:username/:password', async function (req, res) {
+    usuario.findOne({$and:[{ username: req.params.username }, {password:req.params.password}]}).then(function (usuario) {
+        res.send(usuario);
+    });
+});
+
 //here
 
 router.post('/usuarios', async function (req, res) {
