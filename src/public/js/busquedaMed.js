@@ -180,7 +180,7 @@ async function busquedaMedicamento() {
                 }
             }).catch(function (error) {
                 console.log('Hubo un problema con la petición Fetch:' + error.message);
-                result.innerHTML = "NO hay ese medicamento en la base de datos";
+                result.innerHTML = "<p style='color:red; font-weight:bold;'>Lo siento, no está ese medicamento registrado en la base de datos...</p>";
                 //return false
             });
     } else {
@@ -223,3 +223,22 @@ async function addSchedule() {
         return true
     }
 }
+
+function showSesionMed() {
+    //Función para mostrar nombre de usuario si está logeado usanod local storage
+    if (localStorage.getItem("sesion") != null) {
+        let showuserbox = document.getElementById('showuserbox');
+        let SesionGuardado = localStorage.getItem('sesion');
+        let nombreuser = JSON.parse(SesionGuardado);
+        console.log(nombreuser.username)
+        console.log(showuserbox);
+        console.log('objetoObtenido: ', JSON.parse(SesionGuardado));
+        showuserbox.innerHTML = nombreuser.username;
+        validarSesión();
+    } else {
+        console.log("waiting session");
+        validarSesión();
+    }
+}
+
+showSesionMed();
