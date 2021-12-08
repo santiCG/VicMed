@@ -316,8 +316,12 @@ button:focus{
 	border-radius: 10px;	
 }
 
+#boton_login:hover {
+	font-weight: 800;
+}
+
 #boton_reg:hover {
-	font-weight: 700;
+	font-weight: 800;
 }
 
 .wel-nots{
