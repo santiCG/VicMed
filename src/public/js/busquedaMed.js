@@ -147,7 +147,7 @@ async function busquedaMedicamento() {
     let result = document.getElementById('myform');
     result.innerHTML = ''
 
-    if (input != null) {
+    if (input != '') {
         let response = await fetch('/medicamento/' + input,
             {
                 method: "GET",
@@ -160,31 +160,32 @@ async function busquedaMedicamento() {
                     console.log(data.nombre);
                     //return true
                     result.innerHTML += '<div id="form_result">' +
-                        '<label for="name"><strong>Nombre:</strong></label> <br>' +
-                        '<input type="text" class="cambiar_dato" placeholder="" id="nombremedicamento" disabled="true" name="nombremedicamento" value="' + data.nombre + '"/> <br>' +
-                        '<div style="height: 10px;"></div>' +
-                        '<label for="way"><strong>Via:</strong> ' + data.via + '</label> <br>' +
-                        '<div style="height: 10px;"></div>' +
-                        '<label for="way"><strong>Tipo:</strong> ' + data.tipo + '</label> <br>' +
-                        '<div style="height: 10px;"></div>' +
-                        '<label for="time"><strong>Descripción:</strong> ' + data.descripcion + '</label> <br>' +
-                        '<label for="time"><strong>Intervalo dosis (recomendada):</strong> ' + data.intervalodosis + '</label> <br>' +
-                        '<input type="number" class="cambiar_dato" placeholder="Cambiar intervalo (opcional)" id="intervalodosis" name="intervalodosis"/> <br>' +
-                        '<label for="extra-data"><strong>Datos adicionales:</strong></label> <br>' +
-                        '<input type="text" class="cambiar_dato" placeholder="opcional" name="datosadicionales" id="datosadicionales"/> <br>' +
-                        '<label for="extra-data"><strong>Empezar el día:</strong></label> <br>' +
-                        '<input type="date" class="cambiar_dato" name="fechainicio" id="fechainicio"> <br>' +
-                        '<center><button id="anadir_med" onclick="addSchedule()">Añadir Recordatorio</button></center>' +
-                        '</div>'
-
+                                            '<div id="name_med">' +
+                                                '<label for="name"><strong>Nombre: </strong></label> <br>' +
+                                                '<input type="text" class="cambiar_dato" placeholder="" id="nombremedicamento" disabled="true" name="nombremedicamento" value="' + data.nombre + '"/>' +
+                                            '</div>' +
+                                            '<label for="way"><strong>Via:</strong> ' + data.via + '</label> <br>' +
+                                            '<div style="height: 10px;"></div>' +
+                                            '<label for="way"><strong>Tipo:</strong> ' + data.tipo + '</label> <br>' +
+                                            '<div style="height: 10px;"></div>' +
+                                            '<label for="time"><strong>Descripción:</strong> ' + data.descripcion + '</label> <br>' +
+                                            '<div style="height: 10px;"></div>' +
+                                            '<label for="time"><strong>Intervalo dosis (recomendada):</strong> ' + data.intervalodosis + 'Hrs'+'</label> <br>' +
+                                            '<input type="number" class="cambiar_dato" placeholder="Cambiar intervalo (opcional)" id="intervalodosis" name="intervalodosis"/> <br>' +
+                                            '<div style="height: 10px;"></div>' +
+                                            '<label for="extra-data"><strong>Datos adicionales:</strong></label> <br>' +
+                                            '<input type="text" class="cambiar_dato" placeholder="opcional" name="datosadicionales" id="datosadicionales"/> <br>' +
+                                            '<label for="extra-data"><strong>Empezar el día:</strong></label> <br>' +
+                                            '<input type="date" class="cambiar_dato" name="fechainicio" id="fechainicio"> <br>' +
+                                            '<center><button id="anadir_med" onclick="addSchedule()">Añadir Recordatorio</button></center>' +
+                                        '</div>'
                 }
             }).catch(function (error) {
                 console.log('Hubo un problema con la petición Fetch:' + error.message);
-                result.innerHTML = "<p style='color:red; font-weight:bold;'>Lo siento, no está ese medicamento registrado en la base de datos...</p>";
-                //return false
+                result.innerHTML = "<p style='color:red;'>Lo sentimos, ese medicamento no está registrado en la base de datos</p>";
             });
     } else {
-        result.innerHTML = "Ingresa un nombre de medicamento por favor";
+        result.innerHTML = "<p style='color:red;'>Ingresa un medicamento por favor</p>";
     }
 
 }
@@ -218,7 +219,7 @@ async function addSchedule() {
         return false
     }
     else {
-        alert("Registro exitoso")
+        alert("Tu medicamento quedo programado con exito")
         window.location.href = './BusquedaMedicina.html';
         return true
     }

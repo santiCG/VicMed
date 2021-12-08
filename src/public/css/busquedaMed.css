@@ -150,6 +150,7 @@ html,body {
 	margin-top: 20px;
 	width: 15%;
 	text-decoration: none;
+    outline: none;
 }
 
 #anadir_med {
@@ -179,10 +180,28 @@ html,body {
 }
 
 #form_result {
+    width: 450px;
     padding: 30px;
     padding-left: 70px;
     padding-right: 70px;
     box-shadow: 0px 1px 3px 0px #a3a2a2;
+}
+
+#nombremedicamento {
+    width: 150px;
+    height: 30px;
+    font-size: 19px;
+    color: #1f1f1f;
+    border: none;
+    padding: 0px;
+    margin-left: 10px;
+    background-color: #fff;
+}
+
+#name_med {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
 }
 
 .cambiar_dato, #ampm {
