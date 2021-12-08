@@ -7,7 +7,8 @@ const medicamentosSchema = new Schema({
     fabricante:String,
     via:String,
     tipo:String,
-    descripción:String,
+    descripcion:String,
+    intervalodosis:Number
 });
 
 const medicamento = mongoose.model('medicamento', medicamentosSchema, 'medicamento');

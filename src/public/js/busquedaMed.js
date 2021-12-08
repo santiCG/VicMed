@@ -1,3 +1,4 @@
+/*
 var medicamentosSencillos = [{'nombre': 'ibuprofeno', 'via': 'oral', 'tipo': 'pastilla', 'periodo': '8 horas'},
                              {'nombre': 'acetaminofen', 'via': 'oral', 'tipo': 'pastilla', 'periodo': '12 horas'},
                              {'nombre': 'mieltertos', 'via': 'oral', 'tipo': 'jarabe', 'periodo': '6 horas'},
@@ -135,4 +136,93 @@ function busquedaMedicamento() {
         }
     }
     result.innerHTML +=  '<center><label for="extra-data" id="fallo_data">No se encontraron resultados</label></center> <br>'
+}
+
+*/
+
+
+
+
+
+//Función que sirve con la base de datos mongo
+async function busquedaMedicamento() {
+
+    let input = document.getElementById('input_busqueda').value.toLowerCase();
+    let result = document.getElementById('myform');
+    result.innerHTML = ''
+
+    if (input != null) {
+        let response = await fetch('/medicamento/' + input,
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            }).then(response => response.json())
+            .then(data => {
+                if (data.nombre != null) {
+                    console.log(data.nombre);
+                    //return true
+                    result.innerHTML += '<div id="form_result">' +
+                        '<label for="name"><strong>Nombre:</strong></label> <br>' +
+                        '<input type="text" class="cambiar_dato" placeholder="" id="nombremedicamento" disabled="true" name="nombremedicamento" value="' + data.nombre + '"/> <br>' +
+                        '<div style="height: 10px;"></div>' +
+                        '<label for="way"><strong>Via:</strong> ' + data.via + '</label> <br>' +
+                        '<div style="height: 10px;"></div>' +
+                        '<label for="way"><strong>Tipo:</strong> ' + data.tipo + '</label> <br>' +
+                        '<div style="height: 10px;"></div>' +
+                        '<label for="time"><strong>Descripción:</strong> ' + data.descripcion + '</label> <br>' +
+                        '<label for="time"><strong>Intervalo dosis (recomendada):</strong> ' + data.intervalodosis + '</label> <br>' +
+                        '<input type="number" class="cambiar_dato" placeholder="Cambiar intervalo (opcional)" id="intervalodosis" name="intervalodosis"/> <br>' +
+                        '<label for="extra-data"><strong>Datos adicionales:</strong></label> <br>' +
+                        '<input type="text" class="cambiar_dato" placeholder="opcional" name="datosadicionales" id="datosadicionales"/> <br>' +
+                        '<label for="extra-data"><strong>Empezar el día:</strong></label> <br>' +
+                        '<input type="date" class="cambiar_dato" name="fechainicio" id="fechainicio"> <br>' +
+                        '<center><button id="anadir_med" onclick="addSchedule()">Añadir Recordatorio</button></center>' +
+                        '</div>'
+
+                }
+            }).catch(function (error) {
+                console.log('Hubo un problema con la petición Fetch:' + error.message);
+                result.innerHTML = "NO hay ese medicamento en la base de datos";
+                //return false
+            });
+    } else {
+        result.innerHTML = "Ingresa un nombre de medicamento por favor";
+    }
+
+}
+
+function addSchedule() {
+    let nombremedicamento = document.getElementById('nombremedicamento').value;
+    let intervalodosis = document.getElementById('intervalodosis').value;
+    let datosadicionales = document.getElementById('datosadicionales').value;
+    let fechainicio = document.getElementById('fechainicio').value;
+
+    console.log(nombremedicamento);
+/*
+    var response = await fetch('/usuarios',
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "username": usernameValue,
+                "email": emailValue,
+                "password": passwordValue
+            }),
+        })
+    if (response.status != 200) {
+        alert("No hemos podido registrarte")
+        return false
+    }
+    else {
+        alert("Has quedado registrado correctamente")
+        window.location.href = './inicio_sesion.html';
+        return true
+    }
+    */
+
+    alert('Funciono');
 }
