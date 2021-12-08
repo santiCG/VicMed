@@ -140,10 +140,6 @@ function busquedaMedicamento() {
 
 */
 
-
-
-
-
 //Función que sirve con la base de datos mongo
 async function busquedaMedicamento() {
 
@@ -193,36 +189,37 @@ async function busquedaMedicamento() {
 
 }
 
-function addSchedule() {
+async function addSchedule() {
     let nombremedicamento = document.getElementById('nombremedicamento').value;
     let intervalodosis = document.getElementById('intervalodosis').value;
     let datosadicionales = document.getElementById('datosadicionales').value;
     let fechainicio = document.getElementById('fechainicio').value;
+    let SesionGuardado = localStorage.getItem('sesion');
+    let nombreuser = JSON.parse(SesionGuardado);
 
-    console.log(nombremedicamento);
-/*
-    var response = await fetch('/usuarios',
+    console.log(nombremedicamento + nombreuser.username + fechainicio + datosadicionales + intervalodosis);
+
+    var response = await fetch('/schedule',
         {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                "username": usernameValue,
-                "email": emailValue,
-                "password": passwordValue
+                "nombremedicamento": nombremedicamento,
+                "usuario": nombreuser.username,
+                "datosadicionales": datosadicionales,
+                "intervalodosis": intervalodosis,
+                "fechainicio": fechainicio
             }),
         })
     if (response.status != 200) {
-        alert("No hemos podido registrarte")
+        alert("Algo no funcionó bien intenta nuevamente")
         return false
     }
     else {
-        alert("Has quedado registrado correctamente")
-        window.location.href = './inicio_sesion.html';
+        alert("Registro exitoso")
+        window.location.href = './BusquedaMedicina.html';
         return true
     }
-    */
-
-    alert('Funciono');
 }
